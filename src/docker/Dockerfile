@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:14.04
+FROM mesosphere/mesos:1.3.0
 
 RUN \
   if [ -f "/tmp/apt-proxy" ]; then \
@@ -32,7 +32,7 @@ RUN \
   apt-get update && \
   apt-get install -qy \
     git vim zip mc curl \
-    openjdk-7-jdk mesos libc6
+    openjdk-7-jdk libc6
 
 # Add kafka-mesos & kafka
 COPY .docker/kafka* /opt/kafka-mesos/
